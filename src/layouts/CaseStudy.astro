@@ -1,0 +1,49 @@
+---
+// Shared case-study template: context, problem, what I built, decisions, results, stack.
+// Sections with no content yet are left out rather than padded.
+import Base from './Base.astro';
+import { caseStudies } from '../data/site';
+
+interface Props {
+  slug: string;
+  problem: string;
+  decisions?: { choice: string; why: string }[];
+  results?: string[];
+}
+const { slug, problem, decisions = [], results = [] } = Astro.props;
+const cs = caseStudies.find((c) => c.slug === slug)!;
+---
+<Base title={cs.title} description={cs.summary}>
+  <article class="prose">
+    <section>
+      <p class="eyebrow">Case study · {cs.context}</p>
+      <h1>{cs.title}</h1>
+      <p class="lede">{cs.summary}</p>
+    </section>
+
+    <h2>The problem</h2>
+    <p>{problem}</p>
+
+    <h2>What I built</h2>
+    <slot />
+
+    {decisions.length > 0 && (
+      <>
+        <h2>Decisions and trade-offs</h2>
+        <ul>{decisions.map((d) => <li><strong>{d.choice}.</strong> {d.why}</li>)}</ul>
+      </>
+    )}
+
+    {results.length > 0 && (
+      <>
+        <h2>Results</h2>
+        <ul>{results.map((r) => <li>{r}</li>)}</ul>
+      </>
+    )}
+
+    <h2>Stack</h2>
+    <ul class="chips">{cs.stack.map((s) => <li>{s}</li>)}</ul>
+
+    <p style="margin-top: 40px;"><a href="/#work">← All work</a></p>
+  </article>
+</Base>

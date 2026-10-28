@@ -1,0 +1,21 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+import Flow from '../../components/Flow.astro';
+// TODO(Mohit): add decisions={[{ choice, why }]} and results={[...]} with real numbers:
+// tables owned, quality rules, issues caught before reaching dashboards.
+---
+<CaseStudy
+  slug="trusted-lakehouse-metrics"
+  problem="Business metrics in an industrial energy company had to stay consistent as data and history changed underneath them."
+>
+  <p>I owned the lakehouse models: medallion layers from raw to curated, Kimball-style dimensional models, SCD Type 2 history so past figures stay reproducible, and data quality rules that check the data before it reaches dashboards.</p>
+  <Flow
+    steps={[
+      { label: 'Bronze', tools: 'raw source data' },
+      { label: 'Silver', tools: 'cleaned, conformed' },
+      { label: 'Gold', tools: 'Kimball models, SCD Type 2' },
+      { label: 'Quality', tools: 'Lightup rules' },
+    ]}
+    caption="Built on Databricks."
+  />
+</CaseStudy>
