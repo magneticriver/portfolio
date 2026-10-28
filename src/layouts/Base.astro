@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.role}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const links = [
+  { href: '/how-i-build', label: 'How I build' },
+  { href: '/#work', label: 'Work' },
+  { href: '/lab/fleet-analytics', label: 'Lab' },
+  { href: '/cv', label: 'CV' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/"><span class="mark" aria-hidden="true">MK</span>{site.name}</a>
+        <nav aria-label="Main">
+          {links.map((l) => (
+            <a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© 2026 {site.name}</span>
+        <span>
+          <a href={site.linkedin}>LinkedIn</a> · <a href={site.github}>GitHub</a> ·
+          <a class="js-email" href="/#contact">Email</a>
+        </span>
+      </div>
+    </footer>
+    <script>
+      // Assemble the address in the browser so it never appears as plain text in the page source.
+      const r = (s: string) => s.split('').reverse().join('');
+      const addr = r('tniopgninrut') + '@' + r('moc.sdnimdedargnu');
+      document.querySelectorAll<HTMLAnchorElement>('.js-email').forEach((a) => {
+        a.href = 'mailto:' + addr;
+        if (a.dataset.show !== undefined) a.textContent = addr;
+      });
+    </script>
+  </body>
+</html>

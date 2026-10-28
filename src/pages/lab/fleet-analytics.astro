@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Flow from '../../components/Flow.astro';
+import { buildLog } from '../../data/site';
+---
+<Base title="Fleet-service product analytics (in progress)" description="Flagship project: product analytics for a sample fleet-service SaaS app, with PostHog, dbt, dashboards and an evaluated ask-the-data layer.">
+  <article class="prose">
+    <section>
+      <span class="tag">In progress</span>
+      <h1>Product analytics for a fleet-service SaaS app</h1>
+      <p class="lede">A working demo of product analytics end to end, on a sample fleet and field-service app: from tracked events to activation and retention metrics, and then an AI layer people can question in plain English.</p>
+    </section>
+
+    <div class="callout">
+      <p>This project is being built in public. The demo will appear here when it's ready; until then, the build log below shows progress.</p>
+    </div>
+
+    <h2>The plan</h2>
+    <Flow
+      steps={[
+        { label: 'Track', tools: 'PostHog events + tracking plan' },
+        { label: 'Model', tools: 'dbt, tested' },
+        { label: 'Measure', tools: 'activation, retention, feature usage' },
+        { label: 'Ask', tools: 'text-to-SQL with an eval set' },
+      ]}
+    />
+    <ul>
+      <li>A tracking plan for a sample fleet-service app, and events sent to PostHog.</li>
+      <li>dbt models for users, accounts and events, with tests.</li>
+      <li>Activation, retention and feature-usage dashboards.</li>
+      <li>An "ask the data" box over the metrics layer, with its eval pass rate shown next to it.</li>
+    </ul>
+
+    <h2>Build log</h2>
+    <ul class="rows">
+      {buildLog.map((n) => (
+        <li><div class="meta">{n.date}</div><h3>{n.title}</h3><p class="muted" style="margin: 0;">{n.body}</p></li>
+      ))}
+    </ul>
+  </article>
+</Base>

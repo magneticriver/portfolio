@@ -1,0 +1,21 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+import Flow from '../../components/Flow.astro';
+// TODO(Mohit): add decisions={[{ choice, why }]} and results={[...]} with real numbers:
+// number of businesses and sources, users covered by security, team size you led.
+---
+<CaseStudy
+  slug="multi-business-metrics"
+  problem="Several portfolio businesses ran their own ERP systems, so there was no single, comparable view of their numbers, and each user had to see only the data they were entitled to."
+>
+  <p>I consolidated ERP data from the portfolio companies into one Snowflake warehouse with Airflow and dbt pipelines, defined shared metrics across the businesses, and designed a four-tier row-level security model for Power BI. I also led the data team doing the work.</p>
+  <Flow
+    steps={[
+      { label: 'Sources', tools: 'ERPs of several businesses' },
+      { label: 'Pipelines', tools: 'Airflow' },
+      { label: 'Warehouse', tools: 'Snowflake' },
+      { label: 'Models', tools: 'dbt, shared metrics' },
+      { label: 'BI', tools: 'Power BI, 4-tier RLS' },
+    ]}
+  />
+</CaseStudy>

@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, timeline, stack } from '../data/site';
+---
+<Base title="CV" description="Experience and stack: 13 years in software and data, the last 7 in analytics engineering.">
+  <section>
+    <p class="eyebrow">CV</p>
+    <h1>{site.name}</h1>
+    <p class="lede">{site.role}. 13 years in software and data, the last 7 building analytics platforms end to end.</p>
+    <div class="buttons">
+      <a class="btn" href={site.linkedin}>LinkedIn</a>
+      <a class="btn js-email" href="/#contact">Email</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <ul class="rows" style="margin-top: 16px;">
+      {timeline.map((t) => (
+        <li>
+          <div class="meta">{t.years}</div>
+          <h3>{t.role} · <span class="muted">{t.org}</span></h3>
+          <p class="muted" style="margin: 0;">{t.line}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Stack</h2>
+    <dl class="pairs" style="margin-top: 16px;">
+      {stack.map((s) => (<><dt>{s.layer}</dt><dd>{s.items}</dd></>))}
+    </dl>
+  </section>
+</Base>

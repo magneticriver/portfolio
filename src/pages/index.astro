@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, whatIDo, principles, caseStudies, lab, buildLog, now, about } from '../data/site';
+---
+<Base>
+  <section>
+    <p class="eyebrow">{site.name} · {site.role} · {site.location}</p>
+    <h1>{site.headline}</h1>
+    <p class="lede">{site.pitch}</p>
+    <div class="buttons">
+      <a class="btn primary" href="/lab/fleet-analytics">See the demo (in progress)</a>
+      <a class="btn" href="/how-i-build">Read how I build</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      {whatIDo.map((c) => (
+        <div class="card"><h3>{c.title}</h3><p>{c.body}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <section id="how-i-build">
+    <div class="section-head">
+      <h2>How I build</h2>
+      <a href="/how-i-build">The full approach →</a>
+    </div>
+    <div class="grid">
+      {principles.map((p, i) => (
+        <div class="card"><div class="num">0{i + 1}</div><h3>{p.title}</h3></div>
+      ))}
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="section-head"><h2>Live demo</h2></div>
+    <a class="card" href="/lab/fleet-analytics">
+      <span class="tag">In progress</span>
+      <h3>Product analytics for a fleet-service SaaS app</h3>
+      <p>Events tracked in PostHog, modelled in dbt, activation and retention dashboards, and an "ask the data" box with its eval pass rate shown. Follow the build log while it's being built.</p>
+      <ul class="chips"><li>PostHog</li><li>dbt</li><li>DuckDB</li><li>Metabase</li><li>LLM + evals</li></ul>
+    </a>
+  </section>
+
+  <section id="work">
+    <div class="section-head"><h2>Selected work</h2></div>
+    <div class="grid">
+      {caseStudies.map((c) => (
+        <a class="card" href={`/work/${c.slug}`}>
+          <span class="tag">{c.context}</span>
+          <h3>{c.title}</h3>
+          <p>{c.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="lab">
+    <div class="section-head"><h2>AI lab and build log</h2></div>
+    <p class="muted">Exploration, clearly labelled: small experiments in where analytics and AI meet.</p>
+    <div class="grid">
+      {lab.map((l) => (
+        <a class="card" href={l.href}>
+          <span class="tag">{l.tag}</span>
+          <h3>{l.title}</h3>
+          <p>{l.body}</p>
+          <ul class="chips">{l.stack.map((s) => <li>{s}</li>)}</ul>
+        </a>
+      ))}
+    </div>
+    <h3 style="margin-top: 28px;">Latest from the build log</h3>
+    <ul class="rows">
+      {buildLog.slice(0, 3).map((n) => (
+        <li><div class="meta">{n.date}</div><strong>{n.title}.</strong> <span class="muted">{n.body}</span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="about">
+    <div class="section-head"><h2>About</h2></div>
+    <div class="about">
+      <div class="avatar" aria-hidden="true">MK</div>
+      <div>
+        <p>{about}</p>
+        <h3 style="margin-top: 20px;">Now</h3>
+        <ul class="rows">{now.map((n) => <li>{n}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head"><h2>Contact</h2></div>
+    <p>{site.openTo}</p>
+    <div class="buttons">
+      <a class="btn primary js-email" href="#contact">Email me</a>
+      <a class="btn" href={site.linkedin}>LinkedIn</a>
+      <a class="btn" href={site.github}>GitHub</a>
+      <a class="btn" href="/cv">CV</a>
+    </div>
+    <noscript><p class="muted" style="margin-top: 12px;">Email: turningpoint [at] ungradedminds [dot] com</p></noscript>
+  </section>
+</Base>

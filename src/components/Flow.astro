@@ -1,0 +1,40 @@
+---
+// A simple left-to-right architecture diagram: each step is a box, arrows between them.
+// Wraps to a vertical flow on narrow screens.
+interface Step {
+  label: string;
+  tools: string;
+}
+interface Props {
+  steps: Step[];
+  caption?: string;
+}
+const { steps, caption } = Astro.props;
+---
+<figure class="flow">
+  <ol>
+    {steps.map((s) => (
+      <li>
+        <strong>{s.label}</strong>
+        <span>{s.tools}</span>
+      </li>
+    ))}
+  </ol>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .flow { margin: 20px 0 8px; }
+  ol { list-style: none; padding: 0; margin: 0; display: flex; gap: 22px; }
+  li { position: relative; flex: 1 1 0; min-width: 0; border: 1px solid var(--line); background: var(--surface);
+       border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; }
+  li + li::before { content: "→"; position: absolute; left: -18px; top: 50%; transform: translateY(-50%);
+                    color: var(--accent); font-weight: 700; }
+  strong { font-size: 14px; }
+  span { font: 12px/1.5 var(--mono); color: var(--muted); }
+  figcaption { margin-top: 10px; font-size: 14px; color: var(--faint); }
+  @media (max-width: 640px) {
+    ol { flex-direction: column; gap: 22px; }
+    li + li::before { content: "↓"; left: 50%; top: -19px; transform: translateX(-50%); }
+  }
+</style>

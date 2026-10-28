@@ -1,0 +1,23 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+import Flow from '../../components/Flow.astro';
+// TODO(Mohit): add decisions={[{ choice, why }]} and results={[...]} with real numbers:
+// monthly platform cost, sources and models, dashboards and weekly users,
+// questions the team could now answer, API latency before and after OpenTelemetry.
+---
+<CaseStudy
+  slug="saas-product-analytics"
+  problem="An early-stage AI product with no data stack: the team couldn't see how many people signed up, or which AI features they actually used."
+>
+  <p>I set up the analytics platform from scratch, on my own: ingestion from the app and its services, a warehouse, dbt models and self-serve dashboards for the product team. Signups and usage of each AI feature were tracked and reported.</p>
+  <Flow
+    steps={[
+      { label: 'Ingest', tools: 'dlt, Estuary' },
+      { label: 'Warehouse', tools: 'MotherDuck' },
+      { label: 'Transform', tools: 'dbt' },
+      { label: 'Orchestrate', tools: 'Kestra' },
+      { label: 'Self-serve', tools: 'Metabase' },
+    ]}
+  />
+  <p>On the application side I added OpenTelemetry monitoring, CI and Docker to the SaaS app, and mentored 15+ engineers.</p>
+</CaseStudy>

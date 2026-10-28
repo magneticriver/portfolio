@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Flow from '../components/Flow.astro';
+import { principles } from '../data/site';
+---
+<Base title="How I build" description="How I'd set up product analytics at a 50-person SaaS company: a default stack and six principles.">
+  <article class="prose">
+    <section>
+      <p class="eyebrow">Point of view</p>
+      <h1>How I'd set up product analytics at a 50-person SaaS company</h1>
+      <p class="lede">A small team needs a few trusted numbers more than a big platform. This is my default starting point, and the principles behind it.</p>
+    </section>
+
+    <h2>The default stack</h2>
+    <Flow
+      steps={[
+        { label: 'Track', tools: 'PostHog events from a written tracking plan' },
+        { label: 'Load', tools: 'dlt or Estuary, app database + events' },
+        { label: 'Store', tools: 'MotherDuck, BigQuery or Snowflake' },
+        { label: 'Model', tools: 'dbt, tested, one metrics layer' },
+        { label: 'Use', tools: 'Metabase self-serve, then AI on top' },
+      ]}
+      caption="Start small and managed; move pieces only when the team outgrows them."
+    />
+
+    <h2>Principles</h2>
+    <ul class="rows">
+      {principles.map((p, i) => (
+        <li>
+          <div class="meta">0{i + 1}</div>
+          <h3>{p.title}</h3>
+          <p class="muted" style="margin: 0;">{p.body}</p>
+        </li>
+      ))}
+    </ul>
+
+    <h2>The first month</h2>
+    <ul>
+      <li>Agree on the five or six questions the team argues about most, and the metric that answers each.</li>
+      <li>Write the tracking plan and instrument only those events, with clear names and properties.</li>
+      <li>Model users, accounts and events in dbt, with tests on every model.</li>
+      <li>Ship one activation and one retention dashboard people actually open each week.</li>
+    </ul>
+  </article>
+</Base>
