@@ -2,13 +2,13 @@
 
 export const site = {
   name: 'Mohit Khanduri',
-  role: 'Product Analytics Engineer',
+  role: 'Analytics Engineer & Solutions Architect',
   headline:
     "I turn product and usage data into metrics teams trust, and I'm building toward AI on top of them.",
   pitch:
     "I build the data layer behind product decisions: app and usage data modelled in dbt, clear metrics, and self-serve dashboards. Lately I've been building LLM agents on top of governed data, with every access checked and every run traced.",
   description:
-    'Mohit Khanduri, product analytics engineer in India. Product analytics, analytics engineering, dbt, PostHog, Snowflake, Metabase and AI for SaaS teams.',
+    'Mohit Khanduri, analytics engineer and solutions architect in India. Analytics platforms end to end: data modelling, dbt, Snowflake, Databricks, Metabase and product analytics.',
   location: 'India',
   openTo: 'Open to product analytics and analytics engineering roles, India or remote.',
   linkedin: 'https://www.linkedin.com/in/khandurimohit/',
