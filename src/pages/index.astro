@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site, principles, caseStudies, lab, now } from '../data/site';
+import { site, principles, caseStudies, earlier, now, experiments } from '../data/site';
 ---
 <Base>
   <section>
@@ -12,19 +12,19 @@ import { site, principles, caseStudies, lab, now } from '../data/site';
     </p>
     <p>
       I've spent 13 years in software and data, the last 7 building analytics platforms end to end,
-      at an early-stage AI startup, an industrial energy company and across a group of businesses.
+      at an early-stage AI startup, an industrial energy company and for a private equity firm's portfolio companies.
       The part I enjoy most is the moment a team agrees on what a metric means and starts using it to decide.
     </p>
     <p>
-      Lately I've been building LLM agents on top of governed data. I'm open to product analytics and
-      analytics engineering roles, in India or remote. Reach me by <a class="js-email" href="#contact">email</a>,
-      on <a href={site.linkedin}>LinkedIn</a> or <a href={site.github}>GitHub</a>, or read my <a href="/cv">CV</a>.
+      I'm open to product analytics and analytics engineering roles, in India or remote.
+      Reach me by <a class="js-email" href="#contact">email</a>, on <a href={site.linkedin}>LinkedIn</a>,
+      or read my <a href="/cv">CV</a>.
     </p>
     <noscript><p class="muted">Email: turningpoint [at] ungradedminds [dot] com</p></noscript>
   </section>
 
   <section id="work">
-    <h2>Selected work</h2>
+    <h2>Experience</h2>
     <ul class="list">
       {caseStudies.map((c) => (
         <li><a href={`/work/${c.slug}`}>
@@ -34,6 +34,9 @@ import { site, principles, caseStudies, lab, now } from '../data/site';
         </a></li>
       ))}
     </ul>
+    <p class="muted" style="margin: 18px 0 6px; font-size: 15px;">Earlier:</p>
+    <ul class="bullets">{earlier.map((e) => <li>{e}</li>)}</ul>
+    <p style="margin-top: 12px; font-size: 15px;"><a href="/cv">Full experience on the CV →</a></p>
   </section>
 
   <section id="how-i-work">
@@ -48,21 +51,13 @@ import { site, principles, caseStudies, lab, now } from '../data/site';
     </ul>
   </section>
 
-  <section id="lab">
-    <h2>Side projects</h2>
-    <ul class="list">
-      {lab.map((l) => (
-        <li><a href={l.href}>
-          <div class="t">{l.title}</div>
-          <div class="d">{l.body}</div>
-          <div class="m">{l.stack.join(' · ')}</div>
-        </a></li>
-      ))}
-    </ul>
-  </section>
-
   <section id="now">
     <h2>Now</h2>
     <ul class="bullets">{now.map((n) => <li>{n}</li>)}</ul>
+  </section>
+
+  <section id="experiments">
+    <h2>Experiments</h2>
+    <p class="muted" style="font-size: 15px;">{experiments} <a href={site.github}>See them on GitHub →</a></p>
   </section>
 </Base>

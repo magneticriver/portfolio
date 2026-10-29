@@ -15,7 +15,7 @@ export const site = {
   github: 'https://github.com/mandakani',
 };
 
-// Each principle points at work where it was applied, so none of it is theory.
+// Each principle points at real work where it was applied, so none of it is theory.
 export const principles = [
   {
     title: 'Measure every feature, not just signups',
@@ -47,12 +47,6 @@ export const principles = [
     evidence: 'A four-tier row-level security model for Power BI across several businesses.',
     href: '/work/multi-business-metrics',
   },
-  {
-    title: 'Test the grain of every model',
-    body: 'Joins that fan out quietly double-count. A test that checks one row per entity catches it.',
-    evidence: 'Found and fixed a double-counting join in my own pipeline, with tests that fail on the old version.',
-    href: 'https://github.com/mandakani/healthcare-data-agent-poc',
-  },
 ];
 
 export const caseStudies = [
@@ -75,29 +69,25 @@ export const caseStudies = [
   {
     slug: 'multi-business-metrics',
     title: 'One set of metrics across several businesses',
-    context: 'Group of portfolio businesses',
+    context: "A private equity firm's portfolio companies",
     summary:
       'Consolidated ERP data from several companies into one warehouse, with shared metric definitions and four-tier row-level security.',
     stack: ['Snowflake', 'Airflow', 'dbt', 'Power BI'],
   },
 ];
 
-export const lab = [
-  {
-    title: 'AI research advisor',
-    body: 'A LangGraph agent that asks clarifying questions, researches the web and recommends with sources. Every run is traced in Opik.',
-    href: 'https://github.com/mandakani/ai-projects-sdd',
-    stack: ['LangGraph', 'FastAPI', 'React', 'Opik'],
-  },
-  {
-    title: 'Governed data agent',
-    body: 'An LLM agent over a medallion pipeline that goes through the same consent checks, data masking and filtered retrieval as any other caller.',
-    href: 'https://github.com/mandakani/healthcare-data-agent-poc',
-    stack: ['DuckDB', 'Python', 'litellm'],
-  },
+// Learning repos get one line on the home page, not a showcase.
+export const experiments =
+  "I use AI coding tools every day, and try ideas out as small experiments on GitHub, like an LLM research agent and a governed-data agent. They're learning projects, not production work.";
+
+// Earlier roles, one line each, no employer names (those are on the CV page).
+export const earlier = [
+  'Automated a data catalog with PII tags, quality metadata and lineage across BigQuery and Snowflake.',
+  'Built a Python framework to match and clean customer master data across systems.',
 ];
 
 export const now = [
+  'Focusing on product analytics for SaaS companies, and how AI can make product data easier to use',
   'Learning PostHog event tracking, funnel and retention metrics, and A/B test analysis',
   'Exploring text-to-SQL over a metrics layer, and how to evaluate it',
 ];
