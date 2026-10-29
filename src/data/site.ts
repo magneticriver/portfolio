@@ -15,21 +15,6 @@ export const site = {
   github: 'https://github.com/mandakani',
 };
 
-export const whatIDo = [
-  {
-    title: 'Model product data',
-    body: 'I turn app events, users and accounts into clean dbt models, so teams can see activation, retention and feature usage without writing SQL.',
-  },
-  {
-    title: 'Make metrics trustworthy',
-    body: 'One agreed definition per metric, tests on every model, data quality rules and access control, so every team sees the same numbers.',
-  },
-  {
-    title: 'Exploring: AI on top of data',
-    body: 'LLM agents that go through the same access checks as any other user of the data, with every run traced. See the lab below.',
-  },
-];
-
 // Each principle points at work where it was applied, so none of it is theory.
 export const principles = [
   {
@@ -100,14 +85,12 @@ export const caseStudies = [
 export const lab = [
   {
     title: 'AI research advisor',
-    tag: 'AI lab',
     body: 'A LangGraph agent that asks clarifying questions, researches the web and recommends with sources. Every run is traced in Opik.',
     href: 'https://github.com/mandakani/ai-projects-sdd',
     stack: ['LangGraph', 'FastAPI', 'React', 'Opik'],
   },
   {
     title: 'Governed data agent',
-    tag: 'AI lab',
     body: 'An LLM agent over a medallion pipeline that goes through the same consent checks, data masking and filtered retrieval as any other caller.',
     href: 'https://github.com/mandakani/healthcare-data-agent-poc',
     stack: ['DuckDB', 'Python', 'litellm'],
@@ -118,9 +101,6 @@ export const now = [
   'Learning PostHog event tracking, funnel and retention metrics, and A/B test analysis',
   'Exploring text-to-SQL over a metrics layer, and how to evaluate it',
 ];
-
-export const about =
-  "I started in enterprise IT as a business analyst, moved into software and have spent the last seven years in data modelling and analytics engineering. The part I enjoy most is the moment a product team agrees on what a metric means and starts using it to decide. I've built analytics platforms at a SaaS startup, an industrial energy company and across a group of businesses. Now I'm focused on product analytics for SaaS companies serving small businesses, and I'm learning how AI can make that data easier to use.";
 
 export const timeline = [
   { years: '2025–2026', role: 'Senior Consultant, Data', org: 'Preferred Square Analytics',

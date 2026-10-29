@@ -13,7 +13,7 @@ import { principles } from '../data/site';
 
     <ul class="rows" style="margin-top: 32px;">
       {principles.map((p, i) => (
-        <li>
+        <li id={`p${i + 1}`}>
           <div class="meta">0{i + 1}</div>
           <h3>{p.title}</h3>
           <p class="muted" style="margin: 0 0 6px;">{p.body}</p>
