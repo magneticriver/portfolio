@@ -14,10 +14,9 @@ const ogImage = new URL('/og.png', Astro.site);
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 const links = [
-  { href: '/how-i-build', label: 'How I build' },
-  { href: '/#work', label: 'Work' },
-  { href: '/lab/fleet-analytics', label: 'Lab' },
-  { href: '/cv', label: 'CV' },
+  { href: '/#work', label: 'work' },
+  { href: '/how-i-work', label: 'how I work' },
+  { href: '/cv', label: 'cv' },
 ];
 ---
 <!doctype html>
@@ -39,7 +38,7 @@ const links = [
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href="/"><span class="mark" aria-hidden="true">MK</span>{site.name}</a>
+        <a class="brand" href="/">{site.name}</a>
         <nav aria-label="Main">
           {links.map((l) => (
             <a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>
