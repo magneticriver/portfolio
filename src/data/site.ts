@@ -4,8 +4,8 @@ export const site = {
   name: 'Mohit Khanduri',
   role: 'Analytics Engineer & Solutions Architect',
   description:
-    'Mohit Khanduri, analytics engineer and solutions architect in India. Analytics platforms end to end: data modelling, dbt, Snowflake, Databricks, Metabase and product analytics.',
-  openTo: 'Open to analytics engineering, data architecture and product analytics roles, in India or remote.',
+    'Mohit Khanduri, analytics engineer and solutions architect in India, moving into agentic AI. Data platforms end to end: data modelling, dbt, Snowflake, Databricks, Metabase, observability and LLM agents.',
+  openTo: 'Open to analytics engineering, data architecture and agentic AI roles, in India or remote.',
   linkedin: 'https://www.linkedin.com/in/khandurimohit/',
   github: 'https://github.com/mandakani',
 };
@@ -13,14 +13,15 @@ export const site = {
 // Home-page bio. The Long view adds the two `more` paragraphs.
 export const bio = {
   intro:
-    "I'm an analytics engineer and solutions architect. I design data platforms and turn product and usage data into metrics teams trust.",
+    "I'm an analytics engineer and solutions architect. I design and build data platforms, and I'm now moving into agentic AI: applications where LLM agents work with real data.",
   more: [
-    "I started in enterprise IT as a business analyst, moved into software, and have spent the last seven years in data modelling and analytics engineering: at an early-stage AI startup, where I set up the data stack from scratch; at an industrial energy company, owning lakehouse models and data quality; and for a private equity firm's portfolio companies, bringing their ERP data into one warehouse with shared metrics.",
-    "The part I enjoy most is the moment a team agrees on what a metric means and starts using it to decide. Now I'm focused on product analytics for SaaS companies, and learning how AI can make that data easier to use.",
+    "I started in enterprise IT as a business analyst, moved into software, and have spent the last six-plus years building and observing analytics platforms: at an early-stage AI startup, where I set up the data stack from scratch; at an industrial energy company, owning lakehouse models and data quality; and for a private equity firm's portfolio companies, bringing their ERP data into one warehouse with shared metrics.",
+    "The part I enjoy most is the moment a team agrees on what a metric means and starts using it to decide. Now I'm moving towards agentic AI solutions, starting with Ungraded Minds, an AI career counselling app.",
   ],
-  summary: '13 years in software and data, the last 7 building analytics platforms end to end.',
+  summary: '13 years in software and data, 6+ of them building and observing analytics platforms end to end.',
 };
 
+// Not shown on the site for now (the How I work page is switched off); kept for when it returns.
 // Each principle points at real work where it was applied, so none of it is theory.
 export const principles = [
   {
@@ -92,10 +93,11 @@ export const earlier = [
   'Built a Python framework to match and clean customer master data across systems.',
 ];
 
+// Rendered as HTML so items can carry links.
 export const now = [
-  'Focusing on product analytics for SaaS companies, and how AI can make product data easier to use',
+  'Building <a href="https://ungradedminds.com">Ungraded Minds</a>, an AI-powered career counselling app for students, parents and counsellors in India. First up: a privacy-first waitlist, with parental consent built in for students under 18.',
+  'Moving into agentic AI: LLM agents that work with real data, with tracing and evals to check what they do',
   'Learning PostHog event tracking, funnel and retention metrics, and A/B test analysis',
-  'Exploring text-to-SQL over a metrics layer, and how to evaluate it',
 ];
 
 export const timeline = [

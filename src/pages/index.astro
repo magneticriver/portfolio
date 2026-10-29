@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site, bio, principles, caseStudies, earlier, now, experiments } from '../data/site';
+import { site, bio, caseStudies, earlier, now, experiments } from '../data/site';
 ---
 <Base bare>
   <div class="home">
@@ -15,7 +15,7 @@ import { site, bio, principles, caseStudies, earlier, now, experiments } from '.
       <div class="bio-head">
         <span class="meta">Analytics engineer and solutions architect</span>
         <span class="toggle" role="group" aria-label="Bio length">
-          <button type="button" aria-pressed="true" data-v="default">Default</button> /
+          <button type="button" aria-pressed="true" data-v="short">Short</button> /
           <button type="button" aria-pressed="false" data-v="long">Long</button>
         </span>
       </div>
@@ -40,13 +40,8 @@ import { site, bio, principles, caseStudies, earlier, now, experiments } from '.
         <li><a href="/cv">Full experience on the CV</a></li>
       </ul>
 
-      <h2>How I work</h2>
-      <ul class="sq cols">
-        {principles.map((p, i) => <li><a href={`/how-i-work#p${i + 1}`}>{p.title}</a></li>)}
-      </ul>
-
       <h2>Now</h2>
-      <ul class="sq small">{now.map((n) => <li>{n}</li>)}</ul>
+      <ul class="sq small">{now.map((n) => <li set:html={n} />)}</ul>
 
       <h2>Experiments</h2>
       <p class="muted" style="font-size: 16px;">{experiments} <a href={site.github}>See them on GitHub</a></p>
@@ -57,13 +52,13 @@ import { site, bio, principles, caseStudies, earlier, now, experiments } from '.
       </footer>
     </main>
     <aside class="art">
-      <img src="/images/himalaya-tall.webp" width="840" height="870" alt="The Himalayas at dusk, the highest peaks catching the last light" />
+      <img src="/images/himalaya-tall.webp" width="840" height="1278" alt="The Himalayas at dusk, the highest peaks catching the last light" />
     </aside>
   </div>
 </Base>
 
 <script>
-  // Default / Long bio switch. Without JavaScript the Default bio shows.
+  // Short / Long bio switch. Without JavaScript the Short bio shows.
   const body = document.body;
   document.querySelectorAll<HTMLButtonElement>('.toggle button').forEach((b) =>
     b.addEventListener('click', () => {
