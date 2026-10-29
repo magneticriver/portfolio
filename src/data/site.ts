@@ -3,16 +3,22 @@
 export const site = {
   name: 'Mohit Khanduri',
   role: 'Analytics Engineer & Solutions Architect',
-  headline:
-    "I turn product and usage data into metrics teams trust, and I'm building toward AI on top of them.",
-  pitch:
-    "I build the data layer behind product decisions: app and usage data modelled in dbt, clear metrics, and self-serve dashboards. Lately I've been building LLM agents on top of governed data, with every access checked and every run traced.",
   description:
     'Mohit Khanduri, analytics engineer and solutions architect in India. Analytics platforms end to end: data modelling, dbt, Snowflake, Databricks, Metabase and product analytics.',
-  location: 'India',
-  openTo: 'Open to product analytics and analytics engineering roles, India or remote.',
+  openTo: 'Open to analytics engineering, data architecture and product analytics roles, in India or remote.',
   linkedin: 'https://www.linkedin.com/in/khandurimohit/',
   github: 'https://github.com/mandakani',
+};
+
+// Home-page bio. The Long view adds the two `more` paragraphs.
+export const bio = {
+  intro:
+    "I'm an analytics engineer and solutions architect. I design data platforms and turn product and usage data into metrics teams trust.",
+  more: [
+    "I started in enterprise IT as a business analyst, moved into software, and have spent the last seven years in data modelling and analytics engineering: at an early-stage AI startup, where I set up the data stack from scratch; at an industrial energy company, owning lakehouse models and data quality; and for a private equity firm's portfolio companies, bringing their ERP data into one warehouse with shared metrics.",
+    "The part I enjoy most is the moment a team agrees on what a metric means and starts using it to decide. Now I'm focused on product analytics for SaaS companies, and learning how AI can make that data easier to use.",
+  ],
+  summary: '13 years in software and data, the last 7 building analytics platforms end to end.',
 };
 
 // Each principle points at real work where it was applied, so none of it is theory.
