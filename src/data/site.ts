@@ -6,7 +6,7 @@ export const site = {
   headline:
     "I turn product and usage data into metrics teams trust, and I'm building toward AI on top of them.",
   pitch:
-    "I build the data layer behind product decisions: event and app data modelled in dbt, clear metrics for activation, retention and feature usage, and self-serve dashboards. Lately I'm extending it with AI, like letting teams ask their product data questions in plain English, checked with evals.",
+    "I build the data layer behind product decisions: app and usage data modelled in dbt, clear metrics, and self-serve dashboards. Lately I've been building LLM agents on top of governed data, with every access checked and every run traced.",
   description:
     'Mohit Khanduri, product analytics engineer in India. Product analytics, analytics engineering, dbt, PostHog, Snowflake, Metabase and AI for SaaS teams.',
   location: 'India',
@@ -25,36 +25,48 @@ export const whatIDo = [
     body: 'One agreed definition per metric, tests on every model, data quality rules and access control, so every team sees the same numbers.',
   },
   {
-    title: 'Exploring: AI on top of analytics',
-    body: 'Plain-English questions over the metrics layer, LLM tagging of user feedback, and evals that check the answers. Follow along in the lab.',
+    title: 'Exploring: AI on top of data',
+    body: 'LLM agents that go through the same access checks as any other user of the data, with every run traced. See the lab below.',
   },
 ];
 
-// DRAFT: rewrite these in your own words before publishing. They are the page recruiters remember.
+// Each principle points at work where it was applied, so none of it is theory.
 export const principles = [
   {
-    title: 'Define the metric before the dashboard',
-    body: 'Write down what a number means, its grain and its owner, then build the chart. Most dashboard arguments are really definition arguments.',
-  },
-  {
-    title: 'One agreed definition of an active user',
-    body: 'Activation, active and retained each get one definition in the metrics layer, used by every dashboard and every team.',
-  },
-  {
-    title: 'A tracking plan before tracking code',
-    body: 'Fewer events with clear names and properties beat hundreds of auto-captured clicks nobody can explain a year later.',
-  },
-  {
-    title: 'Test every model',
-    body: 'Uniqueness, nulls, row counts and joins that can fan out. A wrong number on a dashboard costs more trust than a missing one.',
+    title: 'Measure every feature, not just signups',
+    body: 'Signups say people arrived; feature usage says whether the product works for them.',
+    evidence: 'Tracked signups and usage of every AI feature at an early-stage AI startup.',
+    href: '/work/saas-product-analytics',
   },
   {
     title: 'Self-serve beats a ticket queue',
-    body: 'Model the data so a PM can answer the next question in the BI tool, without waiting on the data team.',
+    body: 'Model the data so the product team can answer the next question in the BI tool themselves.',
+    evidence: 'Set up Metabase self-serve reporting for the product team on top of dbt models.',
+    href: '/work/saas-product-analytics',
   },
   {
-    title: 'No AI answer ships without an eval',
-    body: 'If an LLM answers questions about the data, a fixed set of questions with known answers checks it on every change.',
+    title: "Keep history, so last quarter's number never changes",
+    body: 'When source data changes, past figures should still be reproducible.',
+    evidence: 'SCD Type 2 history in the lakehouse models at an industrial energy company.',
+    href: '/work/trusted-lakehouse-metrics',
+  },
+  {
+    title: 'Check the data before it reaches a dashboard',
+    body: 'Quality rules catch problems upstream, before anyone makes a decision on a wrong number.',
+    evidence: 'Data quality rules in Lightup on the same lakehouse.',
+    href: '/work/trusted-lakehouse-metrics',
+  },
+  {
+    title: 'Decide who sees what once, in the model',
+    body: 'Access rules belong in one place, not copied into every report.',
+    evidence: 'A four-tier row-level security model for Power BI across several businesses.',
+    href: '/work/multi-business-metrics',
+  },
+  {
+    title: 'Test the grain of every model',
+    body: 'Joins that fan out quietly double-count. A test that checks one row per entity catches it.',
+    evidence: 'Found and fixed a double-counting join in my own pipeline, with tests that fail on the old version.',
+    href: 'https://github.com/mandakani/healthcare-data-agent-poc',
   },
 ];
 
@@ -102,19 +114,9 @@ export const lab = [
   },
 ];
 
-// Newest first. Keep notes short: what you tried, what you learned.
-export const buildLog = [
-  {
-    date: '2026-10-28',
-    title: 'Scoped the flagship project',
-    body: 'Usage analytics for a sample fleet and field-service SaaS app: PostHog events, dbt models, activation and retention dashboards, then an "ask the data" layer with an eval set.',
-  },
-];
-
 export const now = [
-  'Building the flagship: product analytics for a sample fleet-service SaaS app',
   'Learning PostHog event tracking, funnel and retention metrics, and A/B test analysis',
-  'Exploring text-to-SQL over a metrics layer, and how to eval it',
+  'Exploring text-to-SQL over a metrics layer, and how to evaluate it',
 ];
 
 export const about =

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site, whatIDo, principles, caseStudies, lab, buildLog, now, about } from '../data/site';
+import { site, whatIDo, principles, caseStudies, lab, now, about } from '../data/site';
 ---
 <Base>
   <section>
@@ -8,8 +8,8 @@ import { site, whatIDo, principles, caseStudies, lab, buildLog, now, about } fro
     <h1>{site.headline}</h1>
     <p class="lede">{site.pitch}</p>
     <div class="buttons">
-      <a class="btn primary" href="/lab/fleet-analytics">See the demo (in progress)</a>
-      <a class="btn" href="/how-i-build">Read how I build</a>
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn" href="/how-i-work">How I work</a>
     </div>
   </section>
 
@@ -19,28 +19,6 @@ import { site, whatIDo, principles, caseStudies, lab, buildLog, now, about } fro
         <div class="card"><h3>{c.title}</h3><p>{c.body}</p></div>
       ))}
     </div>
-  </section>
-
-  <section id="how-i-build">
-    <div class="section-head">
-      <h2>How I build</h2>
-      <a href="/how-i-build">The full approach →</a>
-    </div>
-    <div class="grid">
-      {principles.map((p, i) => (
-        <div class="card"><div class="num">0{i + 1}</div><h3>{p.title}</h3></div>
-      ))}
-    </div>
-  </section>
-
-  <section id="demo">
-    <div class="section-head"><h2>Live demo</h2></div>
-    <a class="card" href="/lab/fleet-analytics">
-      <span class="tag">In progress</span>
-      <h3>Product analytics for a fleet-service SaaS app</h3>
-      <p>Events tracked in PostHog, modelled in dbt, activation and retention dashboards, and an "ask the data" box with its eval pass rate shown. Follow the build log while it's being built.</p>
-      <ul class="chips"><li>PostHog</li><li>dbt</li><li>DuckDB</li><li>Metabase</li><li>LLM + evals</li></ul>
-    </a>
   </section>
 
   <section id="work">
@@ -56,9 +34,21 @@ import { site, whatIDo, principles, caseStudies, lab, buildLog, now, about } fro
     </div>
   </section>
 
+  <section id="how-i-work">
+    <div class="section-head">
+      <h2>How I work</h2>
+      <a href="/how-i-work">With the evidence →</a>
+    </div>
+    <div class="grid">
+      {principles.map((p, i) => (
+        <a class="card" href={p.href}><div class="num">0{i + 1}</div><h3>{p.title}</h3><p>{p.evidence}</p></a>
+      ))}
+    </div>
+  </section>
+
   <section id="lab">
-    <div class="section-head"><h2>AI lab and build log</h2></div>
-    <p class="muted">Exploration, clearly labelled: small experiments in where analytics and AI meet.</p>
+    <div class="section-head"><h2>AI lab</h2></div>
+    <p class="muted">Side projects where data and LLM agents meet. Exploration, not production work.</p>
     <div class="grid">
       {lab.map((l) => (
         <a class="card" href={l.href}>
@@ -69,12 +59,6 @@ import { site, whatIDo, principles, caseStudies, lab, buildLog, now, about } fro
         </a>
       ))}
     </div>
-    <h3 style="margin-top: 28px;">Latest from the build log</h3>
-    <ul class="rows">
-      {buildLog.slice(0, 3).map((n) => (
-        <li><div class="meta">{n.date}</div><strong>{n.title}.</strong> <span class="muted">{n.body}</span></li>
-      ))}
-    </ul>
   </section>
 
   <section id="about">
