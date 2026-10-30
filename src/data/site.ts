@@ -7,7 +7,7 @@ export const site = {
     'Mohit Khanduri, analytics engineer and solutions architect in India, moving into agentic AI. Data platforms end to end: data modelling, dbt, Snowflake, Databricks, Metabase, observability and LLM agents.',
   openTo: 'Open to analytics engineering, data architecture and agentic AI roles, in India or remote.',
   linkedin: 'https://www.linkedin.com/in/khandurimohit/',
-  github: 'https://github.com/mandakani',
+  github: 'https://github.com/magneticriver',
 };
 
 // Home-page bio. The Long view adds the two `more` paragraphs.
